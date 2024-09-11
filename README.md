@@ -10,4 +10,5 @@ ezüst színű láda -> nem én rejtem a kincset
 bronz színű láda -> az arany láda hazudik 
 <br>
 ezüstben lesz a kincs
+<br>
 ![gui_megjelenes](https://github.com/user-attachments/assets/9366af54-51e8-441d-ac2e-ae549b9a9e3c)
