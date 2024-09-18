@@ -29,13 +29,6 @@ public class HaromLadaFejtoroMegjelenes extends javax.swing.JFrame {
         jButton2.setEnabled(true);
         jButton3.setEnabled(true);
     }
-
-    private void nemAzRejtette() {
-        gombLetilt();
-        JOptionPane.showMessageDialog(null, "A láda üres!", "Bronz láda", 0);
-        gombFelold();
-    }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -172,23 +165,27 @@ public class HaromLadaFejtoroMegjelenes extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        nemAzRejtette();
+        gombLetilt();
+        JOptionPane.showMessageDialog(null, "A láda üres!", "Bronz láda", 0);
+        gombFelold();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        if (kincsBenneVan == true) {
-            gombLetilt();
-            JOptionPane.showMessageDialog(null, "Ez a láda rejtette a kincset!", "Ezüst láda", 1);
-            //Automatikusan kiszedésre kerül a ládából a kincs!
+        gombLetilt();
+        int dontes = JOptionPane.showConfirmDialog(null, "Ez a láda rejtette a kincset, kiszeded?", "Ezüst láda", 0);
+        if (dontes == 0 && kincsBenneVan == true) {
+            JOptionPane.showMessageDialog(null, "Kiszedted a kincset!", "Bronz láda", 1);
             kincsBenneVan = false;
-            gombFelold();
         } else {
-            nemAzRejtette();
+            JOptionPane.showMessageDialog(null, "A láda üres!", "Bronz láda", 0);
         }
+        gombFelold();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        nemAzRejtette();
+        gombLetilt();
+        JOptionPane.showMessageDialog(null, "A láda üres!", "Bronz láda", 0);
+        gombFelold();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
