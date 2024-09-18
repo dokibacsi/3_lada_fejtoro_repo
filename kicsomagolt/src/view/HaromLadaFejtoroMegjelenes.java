@@ -4,17 +4,36 @@
  */
 package view;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author SimonKendeSimon(SZF_
  */
 public class HaromLadaFejtoroMegjelenes extends javax.swing.JFrame {
 
-    /**
-     * Creates new form HaromLadaFejtoroMegjelenes
-     */
+    boolean kincsBenneVan = true;
+
     public HaromLadaFejtoroMegjelenes() {
         initComponents();
+    }
+
+    private void gombLetilt() {
+        jButton1.setEnabled(false);
+        jButton2.setEnabled(false);
+        jButton3.setEnabled(false);
+    }
+
+    private void gombFelold() {
+        jButton1.setEnabled(true);
+        jButton2.setEnabled(true);
+        jButton3.setEnabled(true);
+    }
+
+    private void nemAzRejtette() {
+        gombLetilt();
+        JOptionPane.showMessageDialog(null, "A láda üres!", "Bronz láda", 0);
+        gombFelold();
     }
 
     /**
@@ -76,8 +95,18 @@ public class HaromLadaFejtoroMegjelenes extends javax.swing.JFrame {
         });
 
         jButton2.setText("Kinyitas");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Kinyitas");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -143,8 +172,24 @@ public class HaromLadaFejtoroMegjelenes extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        nemAzRejtette();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        if (kincsBenneVan == true) {
+            gombLetilt();
+            JOptionPane.showMessageDialog(null, "Ez a láda rejtette a kincset!", "Ezüst láda", 1);
+            //Automatikusan kiszedésre kerül a ládából a kincs!
+            kincsBenneVan = false;
+            gombFelold();
+        } else {
+            nemAzRejtette();
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        nemAzRejtette();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
